@@ -347,23 +347,33 @@ img {
   font-size: var(--larger-font-size);
 }
 
+.about__bottom,
 .about__social-links {
   display: flex;
   align-items: center;
 }
+
+.about__bottom {
+  column-gap: 3rem;
+}
+
 .about__social-links {
   column-gap: 1.25rem;
 }
 
 .about__social-links::before {
-  content:'';
+  content: '';
   background-color: var(--text-color);
   width: 60px;
   height: 2px;
 }
 
 .about__social-link {
-  
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+.about__social-link:hover {
+  color: var(--first-color);
 }
 
 /*=============== QUALIFICATION ===============*/

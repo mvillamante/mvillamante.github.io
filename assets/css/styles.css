@@ -1,0 +1,94 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&display=swap');
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /* Color mode HSL(hue, saturation, lightness) */
+  --first-color: hsl(268, 77%, 58%);
+  --first-color-dark: hsl(268, 78%, 51%);
+  --first-color-light: hsl(268, 100%, 83%);
+  --title-color: hsl(0, 0%, 87%);
+  --text-color: hsl(0, 0%, 69%);
+  --body-color: hsl(200, 12%, 5%);
+  --container-color: hsl(200, 10%, 8%);
+  --border-color: hsl(0, 0%, 20%);
+  --white: #fff;
+
+  /*========== Font and typography ==========*/
+  /* .5rem = 8px | 1rem = 16px ... */
+  --body-font: ;
+  --big-font-size: ;
+  --h1-font-size: ;
+  --h2-font-size: ;
+  --h3-font-size: ;
+  --larger-font-size: ;
+  --large-font-size: ;
+
+  /*========== Font weight ==========*/
+  --weight-300: ;
+  --weight-400: ;
+  --weight-600: ;
+}
+
+/*=============== DARK THEME ===============*/
+
+/*=============== BASE ===============*/
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+/*=============== STYLE SWITCHER ===============*/
+
+/*=============== HEADER & NAV ===============*/
+
+/* Active link */
+
+/*=============== HOME ===============*/
+
+/* Home animation */
+
+/*=============== BUTTON ===============*/
+
+/* Button hover */
+
+/*=============== ABOUT ===============*/
+
+/* About img hover */
+
+/*=============== QUALIFICATION ===============*/
+
+/*=============== SERVICES ===============*/
+
+/* Services hover */
+
+/*=============== SKILLS ===============*/
+
+/*=============== PORTFOLIO ===============*/
+
+/* Work hover */
+
+/*=============== TESTIMONIALS ===============*/
+
+/*=============== CONTACT ===============*/
+
+/*=============== FOOTER ===============*/
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+/* For medium devices */
+@media screen and (max-width: 768px) {
+}
+
+/* For small devices */
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 450px) {
+}

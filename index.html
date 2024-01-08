@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--=============== FONT AWESOME ===============-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -17,15 +17,115 @@
     <div class="style__switcher"></div>
 
     <!--==================== HEADER ====================-->
-    <header class="header"></header>
+    <header class="header">
+        <nav class="nav container">
+          <a href="index.html" class="nav__logo">Michaella</a>
+
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">Home</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a>
+            </li>
+
+            <li class="nav__item">
+              <a href="#experience" class="nav__link">Experience</a>
+            </li>
+            
+
+            <li class="nav__item">
+              <a href="contact" class="nav__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+    </header>
 
     <!--==================== MAIN ====================-->
     <main class="main">
       <!--==================== HOME ====================-->
-      <section class="home" id="home"></section>
+      <section class="home" id="home">
+        <div class="home__container container grid">
+          <div class="home__content">
+            <span class="home__small">Hello</span>
+            <h1 class="home__title"><span>I'm</span> Michaella <br> a <span>Web Developer</span></h1>
+          
+          <p class="home__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
+
+          <div class="home__btns">
+            <a href="#contact" class="btn">Connect with Me</a>
+            <a href="#aboutme" class="btn btn--transparent">About Me</a>
+          </div>
+          </div>
+
+          <div class="home__img-wrapper">
+            <img src="assets/img/profile.png" alt="" class="home__img">
+          </div>
+        </div>
+      </section>
 
       <!--==================== ABOUT ====================-->
-      <section class="about" id="about"></section>
+      <section class="about section" id="about">
+        <div class="about__container container grid">
+          <div class="about__img-wrapper">
+            <img src="assets/img/about.jpg" alt="" class="about__img">
+            <img src="assets/img/about.jpg" alt="" class="about__img">
+            <img src="assets/img/about.jpg" alt="" class="about__img">
+            <img src="assets/img/about.jpg" alt="" class="about__img">
+          </div>
+
+          <div class="about__content">
+            <h2 class="section__title" data-title="Who am I?">
+              I'm Michaella Villamante, a Web Developer
+            </h2>
+
+            <p class="about__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+          
+            <ul class="about__data grid">
+              <li class=""data__item>
+                  <h3 class="data__title">Full Name:</h3>
+                  <span class="data__description">Michaella Villamante</span>
+              </li>
+
+              <li class=""data__item>
+                <h3 class="data__title">Age:</h3>
+                <span class="data__description">19</span>
+            </li>
+
+            <li class=""data__item>
+              <h3 class="data__title">Course:</h3>
+              <span class="data__description">B.S. Computer Science</span>
+          </li>
+
+          <li class=""data__item>
+            <h3 class="data__title">From:</h3>
+            <span class="data__description ">Philippines</span>
+        </li>
+
+            </ul>
+
+            <div class="about__social-links">
+              <a href="" class="about__social-link">
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a href="" class="about__social-link">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+
+              <a href="" class="about__social-link">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+
+              <a href="" class="about__social-link">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!--==================== QUALIFICATION ====================-->
       <section class="qualification" id="qualification"></section>

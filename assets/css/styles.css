@@ -178,6 +178,54 @@ img {
   align-items: center;
 }
 
+.home__desc span{
+  position: relative;
+}
+
+.home__desc span::before {
+  content:"Web Developer";
+  color: #ff7f50;
+  animation: words 20s infinite;
+}
+
+.home__desc span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 70px;
+  background-color: #282123;
+  border-left: 2px solid white;
+  right: -8px;
+  animation: cursor .8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 2px solid #F77F00;
+  }
+}
+
+@keyframes words {
+  0%,40% {
+    content:"Video Editor"
+  }
+  41%,80% {
+    content:"UI/UX Designer"
+  }
+  81%,100% {
+    content:"Programmer"
+  }
+}
+
+@keyframes typing {
+  10%,15%,30%,35%,50%,55%,70%,75%,90%,95% {
+    width: 0;
+  }
+  5%,20%,25%,40%,45%,60%,65%,80%,85% {
+    width: calc(100% + 8px);
+  }
+}
+
 .home__small {
   font-size: var(--large-font-size);
   font-weight: var(--weight-600);
@@ -195,6 +243,7 @@ img {
 
 .home__description {
   margin-block: 1.5rem 3rem;
+  text-align: justify;
 }
 
 .home_btns {
@@ -312,6 +361,10 @@ img {
   transition: all .3s ease;
 }
 
+.about__description {
+  text-align: justify;
+}
+
 .about__img:nth-child(1) {
   clip-path: polygon(0 0, 0 23%, 18% 0);
   transform: translateY(-1.25rem);
@@ -419,6 +472,10 @@ img {
   padding: 2rem 1.5rem;
 }
 
+.resume__description {
+  text-align: justify;
+}
+
 .resume__subtitle {
   font-size: var(--larger-font-size);
   cursor: pointer;
@@ -496,6 +553,7 @@ img {
 
 .skills__description {
   margin-block: 1rem 1.8rem;
+  text-align: justify;
 }
 
 .skills__bar,
@@ -539,7 +597,7 @@ img {
   margin-bottom: 2.5rem;
 }
 
-.cntact__icon {
+.contact__icon {
   color: var(--first-color);
   font-size: var(--large-font-size);
   line-height: 1.8;
@@ -593,9 +651,19 @@ img {
   column-gap: 1.25rem;
 }
 
+.footer__social-link::before {
+  content: '';
+  background-color: var(--text-color);
+  width: 60px;
+  height: 2px;
+}
+
 .footer__social-link {
   color: var(--text-color);
-  font-size: var(--large-font-size);
+  transition: all 0.3s ease;
+}
+.footer__social-link:hover {
+  color: var(--first-color);
 }
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */

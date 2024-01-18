@@ -1,5 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;600&display=swap');
+
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
@@ -8,11 +9,11 @@
   /* Color mode HSL(hue, saturation, lightness) */
   --first-color: #F77F00;
   --first-color-dark: #FF4800;
-  --first-color-light: #FCBF49 ;
+  --first-color-light: #FCBF49;
   --title-color: #FCA311;
   --text-color: #ffff;
   --body-color: #000000;
-  --container-color:  #282123;
+  --container-color: #282123;
   --border-color: #E5E5E5;
   --white: #fff;
 
@@ -135,7 +136,7 @@ img {
   z-index: 1000;
 }
 
-.nav, 
+.nav,
 .nav__list {
   display: flex;
 }
@@ -163,27 +164,36 @@ img {
   display: none;
 
 }
+
+.nav__link:visited {
+  color: white;
+}
+
+
 /* Active link */
-.active-link,
-.nav__link:hover {
+
+.nav__link:hover,
+.active-link {
   color: var(--first-color);
 }
+
 /*=============== HOME ===============*/
 .home {
   background-color: var(--container-color);
   padding-block: 9rem 3rem;
 }
+
 .home__container {
   grid-template-columns: REPEAT(2, 1fr);
   align-items: center;
 }
 
-.home__desc span{
+.home__desc span {
   position: relative;
 }
 
 .home__desc span::before {
-  content:"Web Developer";
+  content: "Web Developer";
   color: #ff7f50;
   animation: words 20s infinite;
 }
@@ -206,29 +216,57 @@ img {
 }
 
 @keyframes words {
-  0%, 20% {
+
+  0%,
+  20% {
     content: "Video Editor";
   }
-  21%, 40% {
+
+  21%,
+  40% {
     content: "UI/UX Designer";
   }
-  41%, 60%  {
+
+  41%,
+  60% {
     content: "Web Developer";
   }
-  61%, 80% {
+
+  61%,
+  80% {
     content: "Programmer";
   }
 
-  81%, 100% {
+  81%,
+  100% {
     content: "Full Stack Developer";
   }
 }
 
 @keyframes typing {
-  10%,15%,30%,35%,50%,55%,70%,75%,90%,95% {
+
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
     width: 0;
   }
-  5%,20%,25%,40%,45%,60%,65%,80%,85% {
+
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
     width: calc(100% + 8px);
   }
 }
@@ -296,29 +334,29 @@ img {
 @keyframes animate__before {
   0% {
     border-radius: 47% 53% 34% 66% / 52% 24% 76% 48%;
-    }
+  }
 
   50% {
-    border-radius: 22% 78% 55% 45% / 18% 33% 67% 82% ;
-    }
+    border-radius: 22% 78% 55% 45% / 18% 33% 67% 82%;
+  }
 
   100% {
     border-radius: 47% 53% 34% 66% / 52% 24% 76% 48%;
-    }
+  }
 }
 
 @keyframes after {
   0% {
     border-radius: 22% 78% 55% 45% / 18% 33% 67% 82%;
-    }
+  }
 
   50% {
     border-radius: 47% 53% 34% 66% / 52% 24% 76% 48%;
-    }
+  }
 
   100% {
     border-radius: 22% 78% 55% 45% / 18% 33% 67% 82%;
-    }
+  }
 }
 
 /*=============== BUTTON ===============*/
@@ -443,6 +481,7 @@ img {
   color: var(--text-color);
   transition: all 0.3s ease;
 }
+
 .about__social-link:hover {
   color: var(--first-color);
 }
@@ -523,7 +562,7 @@ img {
   font-size: var(--large-font-size);
 }
 
-.resume__description{
+.resume__description {
   margin-block: 1.25rem 2rem;
 }
 
@@ -619,7 +658,7 @@ img {
 }
 
 .form__group {
-  display: grid; 
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 1.25rem;
 }
@@ -641,6 +680,7 @@ img {
 .contact__btn {
   float: right;
 }
+
 /*=============== FOOTER ===============*/
 .footer {
   background-color: var(--container-color);
@@ -669,9 +709,11 @@ img {
   color: var(--text-color);
   transition: all 0.3s ease;
 }
+
 .footer__social-link:hover {
   color: var(--first-color);
 }
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 1200px) {
@@ -734,7 +776,7 @@ img {
     transform: initial;
 
   }
-  
+
   .skills_container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -774,7 +816,7 @@ img {
     font-size: 1.3rem;
   }
 
-  #nav-toggler:checked ~ .nav__list {
+  #nav-toggler:checked~.nav__list {
     max-height: 500px;
     padding: 1.75rem;
   }
@@ -797,6 +839,7 @@ img {
   .resume__icon {
     display: none;
   }
+
   .skills__container {
     grid-template-columns: 1fr;
   }

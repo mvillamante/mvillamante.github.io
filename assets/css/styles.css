@@ -206,14 +206,21 @@ img {
 }
 
 @keyframes words {
-  0%,40% {
-    content:"Video Editor"
+  0%, 20% {
+    content: "Video Editor";
   }
-  41%,80% {
-    content:"UI/UX Designer"
+  21%, 40% {
+    content: "UI/UX Designer";
   }
-  81%,100% {
-    content:"Programmer"
+  41%, 60%  {
+    content: "Web Developer";
+  }
+  61%, 80% {
+    content: "Programmer";
+  }
+
+  81%, 100% {
+    content: "Full Stack Developer";
   }
 }
 

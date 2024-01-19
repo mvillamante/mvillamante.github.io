@@ -181,11 +181,7 @@ img {
   color: white;
 }
 
-
-/* Active link */
-
-.nav__link:hover,
-.active-link {
+.nav__link:hover {
   color: var(--first-color);
 }
 

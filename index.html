@@ -137,6 +137,47 @@
       width: 100%;
     }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 200;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translateY(7px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-7px);
+    }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 17, 35, 0.5);
+      z-index: 99;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+ 
+    .nav-overlay.active {
+      opacity: 1;
+    }
+
     /* Sections */
     section {
       min-height: 100vh;
@@ -1277,16 +1318,96 @@
     }
 
     @media(max-width: 900px) {
-      nav { padding: 24px 32px; }
-      .nav-links { display: none; }
-      #about { grid-template-columns: 1fr; padding: 80px 32px; }
-      #skills, #certifications { padding: 80px 32px; }
-      #projects { padding: 80px 32px; }
-      .projects-grid { display: flex; flex-direction: column; }
-      #contact { grid-template-columns: 1fr; padding: 80px 32px; gap: 60px; }
-      .cert-item { grid-template-columns: 1fr; padding: 80px 32px; gap: 60px; }
-      .cert-year, .cert-badge { display: none };
-      footer { flex-direction: column; gap: 20px; padding: 32px; text-align: center;}
+      .cursor, .cursor-ring {
+        display: none;
+      }
+
+      nav {
+        padding: 24px 32px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 72%;
+        max-width: 300px;
+        background: rgba(10, 17, 35, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-left: 1px solid rgba(58, 62, 108, 0.35);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 36px;
+        transition: right 0.4s cubic-bezier(.22, 1, .36, 1);
+        z-index: 200;
+        padding: 80px 40px 40px;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-overlay {
+        display: block;
+        pointer-events: none;
+      }
+ 
+      .nav-overlay.active {
+        pointer-events: auto;
+      }
+
+
+      #about {
+        grid-template-columns: 1fr;
+        padding: 80px 32px;
+      }
+
+      #skills,
+      #certifications {
+        padding: 80px 32px;
+      }
+
+      #projects {
+        padding: 80px 32px;
+      }
+
+      .projects-grid {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #contact {
+        grid-template-columns: 1fr;
+        padding: 80px 32px;
+        gap: 60px;
+      }
+
+      .cert-item {
+        grid-template-columns: 1fr;
+        padding: 20px 18px;
+        gap: 12px;
+      }
+
+      .cert-year,
+      .cert-badge {
+        display: none
+      }
+
+      ;
+
+      footer {
+        flex-direction: column;
+        gap: 20px;
+        padding: 32px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -1295,10 +1416,16 @@
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+  <div class="nav-overlay" id="navOverlay"></div>
 
   <!-- NAV -->
   <nav id="nav">
     <a href="#home" class="nav-logo">Michaella Villamante</a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -1521,7 +1648,7 @@
       <div class="proj-card reveal" style="transition-delay:.05s">
         <div class="tilt-shine"></div>
         <div class="proj-overlay">
-          <div class="proj-overlay-btn">Live Demo ↗</div>
+          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
           <a href="https://github.com/mvillamante/StudyMatch" class="proj-overlay-btn sec">GitHub →</a>
         </div>
         <div class="proj-thumb studymatch-thumb">
@@ -1544,7 +1671,7 @@
       <div class="proj-card reveal" style="transition-delay:.12s">
         <div class="tilt-shine"></div>
         <div class="proj-overlay">
-          <div class="proj-overlay-btn">Live Demo ↗</div>
+          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
           <a href="https://github.com/mvillamante/Etherea" class="proj-overlay-btn sec">GitHub →</a>
         </div>
         <div class="proj-thumb etherea-thumb">
@@ -1553,7 +1680,7 @@
         </div>
         <div class="proj-info">
           <div class="proj-meta">
-            <span class="proj-tag">Etherea</span>
+            <span class="proj-tag">Game Dev</span>
             <span class="proj-year">2024</span>
           </div>
           <div class="proj-title">Etherea</div>
@@ -1564,7 +1691,7 @@
       <div class="proj-card reveal" style="transition-delay:.19s">
         <div class="tilt-shine"></div>
         <div class="proj-overlay">
-          <div class="proj-overlay-btn">Live Demo ↗</div>
+          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
           <a href="https://github.com/mvillamante/Avalia" class="proj-overlay-btn sec">GitHub →</a>
         </div>
         <div class="proj-thumb avalia-thumb">
@@ -1586,9 +1713,9 @@
       <div class="proj-card reveal" style="transition-delay:.26s">
         <div class="tilt-shine"></div>
         <div class="proj-overlay">
-          <div class="proj-overlay-btn">Live Demo ↗</div>
+          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
           <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
-            class="proj-overlay-btn sec">GitHub →</a>
+            class="proj-overlay-btn sec">Figma →</a>
         </div>
         <div class="proj-thumb agrifil-thumb">
           <img src="assets/img/agri1.png" class="phone left">
@@ -1608,7 +1735,7 @@
       <div class="proj-card reveal" style="transition-delay:.33s">
         <div class="tilt-shine"></div>
         <div class="proj-overlay">
-          <div class="proj-overlay-btn">Live Demo ↗</div>
+          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
           <a href="https://github.com/mvillamante/TwitterClone" class="proj-overlay-btn sec">GitHub →</a>
         </div>
         <div class="proj-thumb vespera-thumb">
@@ -1957,7 +2084,7 @@
       el.addEventListener('mouseleave', () => { cur.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; ring.style.opacity = '0.5'; });
     });
 
-    /* ONE BY ONE APPEAR */
+    /* ONE BY ONE APPEARANCE */
     document.querySelectorAll('.skill-icons').forEach(container => {
       const items = container.querySelectorAll('.sk');
       items.forEach((item, index) => {
@@ -1965,24 +2092,25 @@
       });
     });
 
-    /* -- PROJECT 3D TILT -- */
-    // document.querySelectorAll('.proj-card').forEach(card => {
-    //   let animId;
-    //   card.addEventListener('mousemove', e => {
-    //     cancelAnimationFrame(animId);
-    //     const r = card.getBoundingClientRect();
-    //     const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-    //     card.style.transition = 'box-shadow .4s, border-color .4s';
-    //     card.style.transform = `perspective(700px) rotateX(${(y - .5) * -10}deg)
-    //     rotateY(${(x - .5) * 13}deg) translateZ(6px)`;
-    //     card.style.setProperty('--tx', (x * 100) + '%');
-    //     card.style.setProperty('--ty', (y * 100) + '%');
-    //   });
-    //   card.addEventListener('mouuseLeave', () => {
-    //     card.style.transition = 'transform .5s ease, box-shadow .4s,border-color .4s';
-    //     card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateZ(0)';
-    //   })
-    // })
+    /* NAVIGATION TOGGLE */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const overlay = document.getElementById('navOverlay');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    /* CLOSE NAV */
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+    });
   </script>
 </body>
 

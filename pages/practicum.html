@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Practicum — Michaella Villamante</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/cat.png">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/assets/css/practicum.css">
+</head>
+
+<body>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <nav id="nav">
+        <a href="index.html#home" class="nav-logo">Michaella Villamante</a>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#company">Company</a></li>
+            <li><a href="#nature">Nature</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+            <li><a href="../index.html" class="nav-link-box">← Portfolio</a></li>
+        </ul>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light mode">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="intro">
+        <div class="hero-bg"></div>
+        <canvas id="particles"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                CS <em>Practicum</em>
+            </h1>
+            <h3 class="hero-company">
+                OGIS Philippines Inc.
+            </h3>
+            <p class="hero-subtitle">
+                Business Analyst Intern
+            </p>
+            <div class="hero-meta">
+                <span>APRIL — JULY 2026</span>
+                <span>•</span>
+                <span>480 HOURS</span>
+            </div>
+            <p class="hero-description">
+                During my internship at OGIS Philippines Inc., I gained
+                hands-on experience in Business Analytics by developing
+                Power BI dashboards, validating business data,
+                writing DAX measures, and designing reports that support
+                operational decision-making.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-fill">
+                    Download Full Report
+                </a>
+                <a href="#nature" class="btn-outline">
+                    View Responsibilities
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="section" id="company">
+
+        <div class="container company-grid">
+
+            <div class="reveal-left">
+
+                <div class="section-eyebrow">
+                    About the Company
+                </div>
+
+                <h2 class="section-title">
+                    OGIS <em>Philippines</em>
+                </h2>
+
+                <p>
+                    OGIS Philippines Inc. is an information technology
+                    company specializing in enterprise solutions,
+                    digital transformation, Business Intelligence,
+                    data analytics, and software development.
+                    Throughout my internship, I collaborated with
+                    experienced professionals while contributing to
+                    Power BI reporting projects, data validation
+                    activities, and dashboard enhancements used by
+                    enterprise clients.
+                </p>
+
+            </div>
+
+            <div class="company-card reveal">
+
+                <div class="company-item">
+                    <span>Industry</span>
+                    <h4>Information Technology</h4>
+                </div>
+
+                <div class="company-item">
+                    <span>Department</span>
+                    <h4>Business Intelligence</h4>
+                </div>
+
+                <div class="company-item">
+                    <span>Role</span>
+                    <h4>BI & Data Analytics Intern</h4>
+                </div>
+
+                <div class="company-item">
+                    <span>Duration</span>
+                    <h4>480 Hours</h4>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= NATURE ================= -->
+
+    <section class="section" id="nature">
+
+        <div class="container">
+
+            <div class="section-eyebrow reveal">
+                Nature of Practicum
+            </div>
+
+            <h2 class="section-title reveal">
+                Internship <em>Responsibilities</em>
+            </h2>
+
+            <p class="section-description reveal">
+                My internship focused on transforming raw operational
+                data into meaningful business insights through
+                Power BI dashboards and analytical reporting.
+                I participated in enterprise dashboard development,
+                business data validation, and visualization design
+                following the company's CODEX internship framework.
+            </p>
+
+            <!-- Statistics -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card reveal">
+                    <h2 data-target="480" data-suffix="+">0</h2>
+                    <span>Hours Rendered</span>
+                </div>
+
+                <div class="stat-card reveal">
+                    <h2 data-target="53">0</h2>
+                    <span>Reports Created</span>
+                </div>
+
+                <div class="stat-card reveal">
+                    <h2 data-target="3">0</h2>
+                    <span>Training Phases</span>
+                </div>
+
+                <div class="stat-card reveal">
+                    <h2 data-target="12">0</h2>
+                    <span>Weeks Completed</span>
+                </div>
+
+            </div>
+
+            <!-- Responsibilities -->
+
+            <div class="responsibility-grid">
+
+                <article class="responsibility-card reveal">
+                    <div class="responsibility-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Power BI Dashboard Development</h3>
+                    <p>
+                        Designed interactive dashboards,
+                        KPI cards, slicers,
+                        drill-through pages,
+                        and executive reports.
+                    </p>
+                </article>
+
+                <article class="responsibility-card reveal">
+                    <div class="responsibility-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+                    <h3>DAX Development</h3>
+                    <p>
+                        Developed calculated measures,
+                        dynamic KPIs,
+                        latest-value calculations,
+                        and business metrics using DAX.
+                    </p>
+                </article>
+
+                <article class="responsibility-card reveal">
+                    <div class="responsibility-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Business Data Validation</h3>
+                    <p>
+                        Validated dashboard outputs against
+                        source spreadsheets and
+                        SharePoint data before deployment.
+                    </p>
+                </article>
+
+                <article class="responsibility-card reveal">
+                    <div class="responsibility-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>Report Design</h3>
+                    <p>
+                        Improved dashboard layouts,
+                        navigation,
+                        bookmarks,
+                        and user experience for business users.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TIMELINE ================= -->
+
+    <section class="section" id="timeline">
+
+        <div class="container">
+
+            <div class="section-eyebrow reveal">
+                Internship Timeline
+            </div>
+
+            <h2 class="section-title reveal">
+                Journey & <em>Progress</em>
+            </h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+                    <span>Week 1–3</span>
+                    <h3>General IT Training</h3>
+                    <p>
+                        Company orientation,
+                        workplace standards,
+                        soft skills,
+                        and technical foundations.
+                    </p>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <span>Week 3–4</span>
+                    <h3>Product Training</h3>
+                    <p>
+                        Power BI,
+                        SharePoint,
+                        reporting standards,
+                        and enterprise workflows.
+                    </p>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <span>Week 5–12</span>
+                    <h3>Work Immersion</h3>
+                    <p>
+                        Dashboard development,
+                        report enhancement,
+                        DAX implementation,
+                        and data validation.
+                    </p>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <span>Final Week</span>
+                    <h3>Project Completion</h3>
+                    <p>
+                        Final presentations,
+                        documentation,
+                        knowledge transfer,
+                        and evaluation.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= REFLECTION ================= -->
+
+    <section class="section" id="reflection">
+
+        <div class="container">
+
+            <div class="section-eyebrow reveal">
+                Reflection
+            </div>
+
+            <h2 class="section-title reveal">
+                Lessons <em>Learned</em>
+            </h2>
+
+            <p class="reflection reveal">
+                My internship at OGIS Philippines strengthened
+                both my technical and professional skills by exposing
+                me to real-world Business Intelligence projects.
+                Beyond creating dashboards, I learned the importance
+                of data quality, stakeholder communication,
+                and transforming business requirements into
+                actionable analytical solutions.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <div class="footer-logo">Designed by Michaella Villamante</div>
+        <div class="footer-copy">© Michaella Villamante. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Work</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script src="../practicum.js"></script>
+
+</body>
+
+</html>

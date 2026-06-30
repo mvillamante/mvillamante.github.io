@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michaella Villamante</title>
@@ -9,14 +15,12 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="image/png" sizes="180x180" href="assets/img/mv.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/cat.png">
   <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
   <div class="nav-overlay" id="navOverlay"></div>
 
   <!-- NAV -->
@@ -33,7 +37,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="nav-link-box">Practicum</a></li>
     </ul>
   </nav>
 
@@ -47,12 +51,18 @@
     <p class="hero-sub">Aspiring Data Scientist &nbsp;·&nbsp; Software Developer &nbsp;·&nbsp; UI/UX Designer</p>
     <div class="hero-cta">
       <a href="#projects" class="btn-fill">View Work</a>
-      <a href="#contact" class="btn-outline">Get In Touch</a>
+      <a href="assets/pdf/resume.pdf" class="btn-outline" target="_blank">Download CV</a>
     </div>
-    <div class="scroll-indicator">
+    <div class="hero-socials">
+      <a href="mailto:villamantemichaella5@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/michaella-villamante" target="_blank" aria-label="LinkedIn"><i
+          class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/mvillamante" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <!-- <div class="scroll-indicator">
       <span>Scroll</span>
       <div class="scroll-line"></div>
-    </div>
+    </div> -->
   </section>
 
   <!-- ABOUT -->
@@ -80,11 +90,11 @@
       </p>
       <div class="about-stats">
         <div>
-          <div class="stat-num">10+</div>
+          <div class="stat-num" data-target="10">0</div>
           <div class="stat-label">Projects Done</div>
         </div>
         <div>
-          <div class="stat-num">10+</div>
+          <div class="stat-num" data-target="20">0</div>
           <div class="stat-label">Certifications</div>
         </div>
       </div>
@@ -206,12 +216,12 @@
           </div>
           <div class="sk-name">Power BI</div>
         </div>
-        <div class="sk">
+        <!-- <div class="sk">
           <div class="sk-icon">
             <img src="https://img.icons8.com/color/48/tableau-software.png" width="50">
           </div>
           <div class="sk-name">Tableau</div>
-        </div>
+        </div> -->
         <div class="sk">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="50">
@@ -243,334 +253,604 @@
         <div class="section-eyebrow">What I've Built</div>
         <h2 class="section-title">Selected <em>Projects</em></h2>
       </div>
-      <a href="#" class="btn-outline">All Projects →</a>
     </div>
-    <div class="projects-grid">
-      <div class="proj-card reveal" style="transition-delay:.05s">
-        <div class="tilt-shine"></div>
-        <div class="proj-overlay">
-          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-          <a href="https://github.com/mvillamante/StudyMatch" class="proj-overlay-btn sec">GitHub →</a>
-        </div>
-        <div class="proj-thumb studymatch-thumb">
-          <img src="assets/img/study1.png" class="web-main">
-          <div class="proj-phone-wrap">
-            <img src="assets/img/study2.png" class="proj-phone-img">
+    <div class="projects-slider">
+      <div class="projects-row top">
+        <div class="projects-track">
+          <div class="proj-card reveal" style="transition-delay:.12s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb etherea-thumb">
+              <img src="assets/img/hazspot.png" class="etherea-img">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://github.com/mvillamante/Geospatial_Web_App" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 01</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Data Analytics</span>
+                <span class="proj-year">2026</span>
+              </div>
+              <div class="proj-title">HazSpot</div>
+              <div class="proj-desc">A geospatial analytics web application that delivers risk insights by combining
+                citizen reporting, advanced analytics, and predictive modeling.</div>
+              <div class="proj-tech">
+                <span>React</span>
+                <span>Django</span>
+                <span>Leaflet</span>
+              </div>
+            </div>
           </div>
-          <div class="proj-thumb-label">PROJECT · 01</div>
-        </div>
-        <div class="proj-info">
-          <div class="proj-meta">
-            <span class="proj-tag">Machine Learning</span>
-            <span class="proj-year">2024</span>
+          <div class="proj-card reveal" style="transition-delay:.12s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb personal-thumb">
+              <img src="assets/img/personal.png" class="etherea-img">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://mvillamante.github.io" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 06</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Portfolio</span>
+                <span class="proj-year">2026</span>
+              </div>
+              <div class="proj-title">Personal Website</div>
+              <div class="proj-desc">A responsive personal portfolio that showcases my projects, technical skills,
+                certifications, and practicum experience through a modern and interactive user interface.</div>
+              <div class="proj-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Javascript</span>
+              </div>
+            </div>
           </div>
-          <div class="proj-title">StudyMatch</div>
-          <div class="proj-desc">A machine learning-based web and mobile application that analyzes students’ learning
-            styles and provides data-driven insights to support personalized teaching.</div>
+          <div class="proj-card reveal" style="transition-delay:.05s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb studymatch-thumb">
+              <img src="assets/img/study1.png" class="web-main">
+              <div class="proj-phone-wrap">
+                <img src="assets/img/study2.png" class="proj-phone-img">
+              </div>
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://github.com/mvillamante/StudyMatch" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 02</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Machine Learning</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">StudyMatch</div>
+              <div class="proj-desc">A machine learning-based web and mobile application that analyzes students’
+                learning
+                styles and provides data-driven insights to support personalized teaching.</div>
+              <div class="proj-tech">
+                <span>Weka</span>
+                <span>Flask</span>
+                <span>Python</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card reveal" style="transition-delay:.26s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb agrifil-thumb">
+              <img src="assets/img/game1.png" class="phone left gamepedia">
+              <img src="assets/img/game2.png" class="phone right gamepedia">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
+                  class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 06</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Game Dev</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">Gamepedia</div>
+              <div class="proj-desc">A mobile quiz application that delivers an interactive gaming trivia experience.
+                The
+                app includes structured question flows, score tracking, and leaderboards to enhance user engagement.
+              </div>
+              <div class="proj-tech">
+                <span>Android Xamarin</span>
+              </div>
+            </div>
+          </div>
+          <div class="proj-card reveal" style="transition-delay:.19s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb avalia-thumb">
+              <img src="assets/img/avalia2.png" class="web-img left">
+              <img src="assets/img/avalia3.png" class="web-img right">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://github.com/mvillamante/Avalia" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 03</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Web App</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">Avalia</div>
+              <div class="proj-desc">A cinema ticket booking system that allows users to browse movies, select
+                showtimes,
+                and reserve seats seamlessly, with integrated face recognition for automated user identification upon
+                entry.
+              </div>
+              <div class="proj-tech">
+                <span>ASP.NET</span>
+                <span>Javascript</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="proj-card reveal" style="transition-delay:.12s">
-        <div class="tilt-shine"></div>
-        <div class="proj-overlay">
-          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-          <a href="https://github.com/mvillamante/Etherea" class="proj-overlay-btn sec">GitHub →</a>
-        </div>
-        <div class="proj-thumb etherea-thumb">
-          <img src="assets/img/etherea2.png" class="etherea-img">
-          <div class="proj-thumb-label">PROJECT · 02</div>
-        </div>
-        <div class="proj-info">
-          <div class="proj-meta">
-            <span class="proj-tag">Game Dev</span>
-            <span class="proj-year">2024</span>
+      <div class="projects-row bottom">
+        <div class="projects-track">
+          <div class="proj-card reveal" style="transition-delay:.12s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb etherea-thumb">
+              <img src="assets/img/etherea2.png" class="etherea-img">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://github.com/mvillamante/Etherea" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 07</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Game Dev</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">Etherea</div>
+              <div class="proj-desc">A parallax-style fighting game featuring a heroine battling various monsters,
+                focused
+                on interactive gameplay and visual experience.</div>
+              <div class="proj-tech">
+                <span>C#</span>
+              </div>
+            </div>
           </div>
-          <div class="proj-title">Etherea</div>
-          <div class="proj-desc">A parallax-style fighting game featuring a heroine battling various monsters, focused
-            on interactive gameplay and visual experience.</div>
-        </div>
-      </div>
-      <div class="proj-card reveal" style="transition-delay:.19s">
-        <div class="tilt-shine"></div>
-        <div class="proj-overlay">
-          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-          <a href="https://github.com/mvillamante/Avalia" class="proj-overlay-btn sec">GitHub →</a>
-        </div>
-        <div class="proj-thumb avalia-thumb">
-          <img src="assets/img/avalia2.png" class="web-img left">
-          <img src="assets/img/avalia3.png" class="web-img right">
-          <div class="proj-thumb-label">PROJECT · 03</div>
-        </div>
-        <div class="proj-info">
-          <div class="proj-meta">
-            <span class="proj-tag">Web App</span>
-            <span class="proj-year">2024</span>
+          <div class="proj-card reveal" style="transition-delay:.26s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb agrifil-thumb">
+              <img src="assets/img/agri1.png" class="phone left">
+              <img src="assets/img/agri3.png" class="phone right">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
+                  class="proj-overlay-btn sec">Figma →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 04</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">UI/UX Design</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">AgriFil</div>
+              <div class="proj-desc">A user-centered UI/UX prototype designed in Figma that enables buyers to purchase
+                fresh
+                fruits and vegetables directly from farmers, supporting local agriculture.</div>
+              <div class="proj-tech">
+                <span>Figma</span>
+              </div>
+            </div>
           </div>
-          <div class="proj-title">Avalia</div>
-          <div class="proj-desc">A cinema ticket booking system that allows users to browse movies, select showtimes,
-            and reserve seats seamlessly, with integrated face recognition for automated user identification upon entry.
+          <div class="proj-card reveal" style="transition-delay:.19s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb ehr-thumb">
+              <img src="assets/img/ehr1.png" class="web-img left">
+              <img src="assets/img/ehr2.png" class="ehr-web-img right">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://github.com/mvillamante/Avalia" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 08</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Web App</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">Electronic Health Record</div>
+              <div class="proj-desc">A web application to book appointments, write therapy notes with sentiment
+                analysis,
+                and keep childrens' health records.
+              </div>
+              <div class="proj-tech">
+                <span>React</span>
+                <span>Node.JS</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="proj-card reveal" style="transition-delay:.26s">
-        <div class="tilt-shine"></div>
-        <div class="proj-overlay">
-          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-          <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
-            class="proj-overlay-btn sec">Figma →</a>
-        </div>
-        <div class="proj-thumb agrifil-thumb">
-          <img src="assets/img/agri1.png" class="phone left">
-          <img src="assets/img/agri3.png" class="phone right">
-          <div class="proj-thumb-label">PROJECT · 04</div>
-        </div>
-        <div class="proj-info">
-          <div class="proj-meta">
-            <span class="proj-tag">UI/UX Design</span>
-            <span class="proj-year">2024</span>
+          <div class="proj-card reveal" style="transition-delay:.33s">
+            <div class="tilt-shine"></div>
+            <div class="proj-thumb vespera-thumb">
+              <img src="assets/img/vespera2.png" class="web-main">
+              <div class="proj-overlay">
+                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
+                <a href="https://github.com/mvillamante/TwitterClone" class="proj-overlay-btn sec">GitHub →</a>
+              </div>
+              <div class="proj-thumb-label">PROJECT · 05</div>
+            </div>
+            <div class="proj-info">
+              <div class="proj-meta">
+                <span class="proj-tag">Web App</span>
+                <span class="proj-year">2024</span>
+              </div>
+              <div class="proj-title">Vespera</div>
+              <div class="proj-desc">A modern social media web application featuring a clean dark-themed interface,
+                intuitive navigation, and interactive feed elements to enhance user engagement and content discovery.
+              </div>
+              <div class="proj-tech">
+                <span>C#</span>
+                <span>ASP.NET</span>
+              </div>
+            </div>
           </div>
-          <div class="proj-title">AgriFil</div>
-          <div class="proj-desc">A user-centered UI/UX prototype designed in Figma that enables buyers to purchase fresh
-            fruits and vegetables directly from farmers, supporting local agriculture.</div>
-        </div>
-      </div>
-      <div class="proj-card reveal" style="transition-delay:.33s">
-        <div class="tilt-shine"></div>
-        <div class="proj-overlay">
-          <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-          <a href="https://github.com/mvillamante/TwitterClone" class="proj-overlay-btn sec">GitHub →</a>
-        </div>
-        <div class="proj-thumb vespera-thumb">
-          <img src="assets/img/vespera2.png" class="web-main">
-          <div class="proj-thumb-label">PROJECT · 05</div>
-        </div>
-        <div class="proj-info">
-          <div class="proj-meta">
-            <span class="proj-tag">Web App</span>
-            <span class="proj-year">2024</span>
-          </div>
-          <div class="proj-title">Vespera</div>
-          <div class="proj-desc">A modern social media web application featuring a clean dark-themed interface,
-            intuitive navigation, and interactive feed elements to enhance user engagement and content discovery.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CERTIFICATIONS -->
+  <!-- ================= CERTIFICATIONS ================= -->
+
   <section id="certifications">
-    <div class="cert-header">
-      <div class="section-eyebrow">Credentials</div>
-      <h2 class="section-title">Certifi<em>cations</em></h2>
+    <div class="certifications-header reveal">
+      <div>
+        <div class="section-eyebrow">
+          Credentials
+        </div>
+        <h2 class="section-title">
+          Certifi<em>cations</em>
+        </h2>
+      </div>
+      <div class="cert-tabs">
+        <button class="cert-tab active" data-tab="ai">
+          Artificial Intelligence
+        </button>
+        <button class="cert-tab" data-tab="datascience">
+          Data Science
+        </button>
+        <button class="cert-tab" data-tab="googlecloud">
+          Google Cloud Skill Boost
+        </button>
+        <button class="cert-tab" data-tab="softdev">
+          Software Development
+        </button>
+      </div>
     </div>
-    <div class="cert-list">
-      <div class="cert-item">
-        <div class="cert-num">01</div>
-        <div>
-          <div class="cert-name">What is Data Science?</div>
-          <div class="cert-issuer">IBM</div>
-        </div>
-        <div class="cert-year">2025</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://coursera.org/share/f77caf1ed3150dc7e522c5c5d7bd2da0" target="_blank" class="cert-view">View
-          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
+    <div class="cert-slider active" id="ai">
+      <div class="cert-controls">
+        <button class="cert-arrow prev">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="cert-arrow next">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
-      <div class="cert-item">
-        <div class="cert-num">02</div>
-        <div>
-          <div class="cert-name">Prepare Data for ML APIs on Google Cloud</div>
-          <div class="cert-issuer">Google</div>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/intro_ai.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Introduction to Artificial Intelligence (AI)
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/e0465fbaa423eb0f4b325f30d0f5fc8d" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9745589?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">03</div>
-        <div>
-          <div class="cert-name">Google Cloud Computing Foundations: Data, ML, and AI in Google Cloud</div>
-          <div class="cert-issuer">Google</div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/gen_prompt.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Generative AI: Prompt Engineering Basics
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/9dac7bc5030e5202d98448684ab6520e" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9745178"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">04</div>
-        <div>
-          <div class="cert-name">Build a Secure Google Cloud Network</div>
-          <div class="cert-issuer">Google</div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/gen_ai.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Generative AI: Introduction and Applications
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/e0465fbaa423eb0f4b325f30d0f5fc8d" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9478234"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
       </div>
-      <div class="cert-item">
-        <div class="cert-num">05</div>
-        <div>
-          <div class="cert-name">Google Cloud Computing Foundations: Networking & Security in Google Cloud</div>
-          <div class="cert-issuer">Google</div>
+    </div>
+
+    <div class="cert-slider" id="datascience">
+      <div class="cert-controls">
+        <button class="cert-arrow prev">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="cert-arrow next">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/python_dsai.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Python for Data Science, AI & Development
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/a3f876919b779ee64107b59aa25ecb26" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9477619"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">06</div>
-        <div>
-          <div class="cert-name">Implementing Cloud Load Balancing for Compute Engine</div>
-          <div class="cert-issuer">Google</div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/tools_ds.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Tools for Data Science?
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/9e4fe41f0bef64836921bc681f2238ba" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9402289"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">07</div>
-        <div>
-          <div class="cert-name">Google Cloud Computing Foundations: Cloud Computing Fundamentals</div>
-          <div class="cert-issuer">Google</div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/python_ds.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Python Project for Data Science
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/a5621064f1c952a23217b2a8ea4e2420" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9277818"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">08</div>
-        <div>
-          <div class="cert-name">Set Up an App Dev Environment on Google Cloud</div>
-          <div class="cert-issuer">Google</div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/ds_methodology.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Data Science Methodology
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/536ce548269181cf42c58c93417f5640" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9444079"
-          target="_blank" class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor"
-            stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
-      </div>
-      <div class="cert-item">
-        <div class="cert-num">09</div>
-        <div>
-          <div class="cert-name">Legacy Responsive Web Design V8</div>
-          <div class="cert-issuer">FreeCodeCamp</div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/what_ds.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              What is Data Science?
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2025</span>
+              <a href="https://coursera.org/share/f77caf1ed3150dc7e522c5c5d7bd2da0" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2024</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://www.freecodecamp.org/certification/miichft/responsive-web-design" target="_blank"
-          class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
       </div>
-      <div class="cert-item">
-        <div class="cert-num">10</div>
-        <div>
-          <div class="cert-name">CompTIA Tech+</div>
-          <div class="cert-issuer">CompTIA</div>
+    </div>
+
+    <div class="cert-slider" id="softdev">
+      <div class="cert-controls">
+        <button class="cert-arrow prev">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="cert-arrow next">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/softeng.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Introduction to Software Engineering
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/8ba61289d4cd906aa180e1ae2dbd3201" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="cert-year">2025</div>
-        <div class="cert-badge">✓</div>
-        <a href="https://drive.google.com/file/d/1EAlv6Z_js5kpf0HUbfCgUgitDagdj1cy/view?usp=sharing" target="_blank"
-          class="cert-view">View <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M1 9L9 1M9 1H3M9 1V7" />
-          </svg></a>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/intro_html.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Introduction to HTML, CSS, & Javascript
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/dd547fbcbe68f796007a29eb774a8f20" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/comptia.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              CompTIA
+            </span>
+            <h3>
+              CompTIA Tech+
+            </h3>
+            <p>
+              CompTIA
+            </p>
+            <div class="cert-footer">
+              <span>2025</span>
+              <a href="https://drive.google.com/file/d/1EAlv6Z_js5kpf0HUbfCgUgitDagdj1cy/view?usp=sharing"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="cert-slider" id="googlecloud">
+      <div class="cert-controls">
+        <button class="cert-arrow prev">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="cert-arrow next">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/2.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Prepare Data for ML APIs
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9745589"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
-
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-left">
-      <div class="section-eyebrow">Let's Talk</div>
-      <h2 class="section-title">Get In <em>Touch</em></h2>
-      <p class="contact-text">
-        Have a project in mind or just want to say hello? I'm always open
-        to new opportunities and interesting collaborations.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:villamantemichaella5@gmail.com" class="contact-link">
-          <div class="contact-link-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div>
-            <div
-              style="font-size:10px;letter-spacing:0.15em;color:var(--ube);text-transform:uppercase;margin-bottom: 3px;">
-              Email</div>
-            villamantemichaella5@gmail.com
-          </div>
-        </a>
-        <a href="https://linkedin.com/in/michaella-villamante" class="contact-link" target="_blank">
-          <div class="contact-link-icon">
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-          <div>
-            <div
-              style="font-size:10px;letter-spacing:0.15em;color:var(--ube);text-transform:uppercase;margin-bottom: 3px;">
-              LinkedIn
-            </div>
-            linkedin.com/in/michaella-villamante
-          </div>
-        </a>
-        <a href="https://github.com/mvillamante" class="contact-link" target="_blank">
-          <div class="contact-link-icon">
-            <i class="fab fa-github"></i>
-          </div>
-          <div>
-            <div
-              style="font-size:10px;letter-spacing:0.15em;color:var(--ube);text-transform:uppercase;margin-bottom: 3px;">
-              GitHub
-            </div>
-            github.com/mvillamante
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="contact-form">
-      <div class="form-field">
-        <label class="form-label">Name</label>
-        <input class="form-input" type="text" placeholder="Your full name">
-      </div>
-      <div class="form-field">
-        <label class="form-label">Email</label>
-        <input class="form-input" type="email" placeholder="your@email.com">
-      </div>
-      <div class="form-field">
-        <label class="form-label">Subject</label>
-        <input class="form-input" type="text" placeholder="What's this about?">
-      </div>
-      <div class="form-field">
-        <label class="form-label">Message</label>
-        <textarea class="form-textarea" placeholder="Tell me about your project..."></textarea>
-      </div>
-      <button class="submit-btn"><span>Send Message →</span></button>
-    </div>
-  </section>
+
 
   <!-- FOOTER -->
   <footer>
@@ -580,9 +860,13 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Work</a>
-      <a href="#contact">Contact</a>
+      <a href="#certifications">Certifications</a>
     </div>
   </footer>
+  <button class="theme-toggle floating" id="themeToggle" aria-label="Toggle Theme">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
 </body>
 
 <script src="index.js"></script>

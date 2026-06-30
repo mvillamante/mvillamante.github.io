@@ -1865,3 +1865,172 @@ body::after {
         height: 46px;
     }
 }
+
+/* ---------- PHONE REFINEMENTS ---------- */
+@media (max-width: 600px) {
+
+    .nav-logo {
+        font-size: 11px;
+        letter-spacing: .15em;
+    }
+
+    nav {
+        padding: 20px 22px;
+    }
+
+    nav.scrolled {
+        padding: 14px 22px;
+    }
+
+    #home {
+        padding: 0 22px;
+    }
+
+    .hero-name {
+        font-size: clamp(38px, 13vw, 64px);
+    }
+
+    .hero-label {
+        font-size: 12px;
+        letter-spacing: .3em;
+    }
+
+    .hero-cta {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 40px;
+    }
+
+    .btn-fill,
+    .btn-outline {
+        padding: 13px 26px;
+        font-size: 10px;
+    }
+
+    .hero-socials {
+        margin-top: 28px;
+        gap: 16px;
+    }
+
+    .about-img {
+        width: 100%;
+    }
+
+    .about-img-frame {
+        right: 24px;
+    }
+
+    .about-tag {
+        left: 0;
+        top: -18px;
+        font-size: 9px;
+        padding: 9px 16px;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 36px;
+        padding-top: 28px;
+    }
+
+    .stat-num {
+        font-size: 30px;
+    }
+
+    .stat-label {
+        font-size: 8px;
+        letter-spacing: .1em;
+    }
+
+    .section-title {
+        font-size: clamp(30px, 8vw, 48px);
+    }
+
+    .skill-icons {
+        gap: 10px;
+    }
+
+    .sk {
+        width: 104px;
+        height: 104px;
+    }
+
+    .proj-card {
+        flex: 0 0 82vw;
+    }
+
+    .cert-card {
+        flex: 0 0 86vw;
+    }
+
+    .cert-tabs {
+        margin: 40px 0 44px;
+        gap: 10px;
+    }
+
+    .cert-total {
+        font-size: 3.2rem;
+    }
+
+    .certifications-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .cert-summary {
+        text-align: left;
+    }
+
+    .contact-form {
+        gap: 16px;
+    }
+
+    .submit-btn {
+        align-self: stretch;
+        text-align: center;
+    }
+
+    footer {
+        padding: 28px 20px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .theme-toggle {
+        right: 16px;
+        bottom: 16px;
+        width: 42px;
+        height: 42px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-fill,
+    .btn-outline {
+        text-align: center;
+        width: 100%;
+    }
+
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sk {
+        width: 90px;
+        height: 90px;
+    }
+}

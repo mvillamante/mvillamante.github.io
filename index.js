@@ -23,7 +23,6 @@ window.addEventListener('scroll', () => {
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur2));
 })
 
-/* -- SMOOTH SCROLL (custom eased) -- */
 function easeInOutCubic(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
@@ -63,48 +62,133 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* -- PARTICLES -- */
-const cv = document.getElementById('particles'), cx = cv.getContext('2d');
-function resize() { cv.width = innerWidth; cv.height = innerHeight; } resize();
-window.addEventListener('resize', resize);
+
+const cv = document.getElementById('particles');
+const cx = cv.getContext('2d');
+
+function resize() {
+    cv.width = innerWidth;
+    cv.height = innerHeight;
+}
+
+resize();
+window.addEventListener("resize", resize);
+
 const pts = Array.from({ length: 65 }, () => ({
-    x: Math.random() * innerWidth,
-    y: Math.random() * innerHeight,
-    r: Math.random() * .6 + .3, vx: (Math.random() - .5) * .28, vy: (Math.random() - .5) * .28, a: Math.random() * .5 + .2
+    x: Math.random() * cv.width,
+    y: Math.random() * cv.height,
+    r: Math.random() * .6 + .3,
+    vx: (Math.random() - .5) * .28,
+    vy: (Math.random() - .5) * .28,
+    a: Math.random() * .5 + .2
 }));
-(function drawPts() {
+
+const stars = Array.from({ length: 30 }, () => ({
+    x: Math.random() * cv.width,
+    y: Math.random() * cv.height,
+    r: Math.random() < .08
+        ? Math.random() * 2 + 1.5
+        : Math.random() * 1 + .35,
+    alpha: Math.random() * .35 + .15,
+    timer: Math.random() * 300
+}));
+
+(function drawScene() {
+
     cx.clearRect(0, 0, cv.width, cv.height);
-    pts.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0) p.x = cv.width; if (p.x > cv.width) p.x = 0;
-        if (p.y < 0) p.y = cv.height; if (p.y > cv.height) p.y = 0;
-        cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, Math.PI * 2); cx.fillStyle = `rgba(131,135,195,${p.a})`; cx.fill();
+
+    /* ---------- STARS ---------- */
+
+    stars.forEach(s => {
+
+        s.timer--;
+
+        if (s.timer <= 0) {
+            s.alpha = 1;
+            s.timer = Math.random() * 300 + 150;
+        }
+
+        s.alpha += (0.2 - s.alpha) * 0.04;
+
+        const pulse = 1 + Math.sin(performance.now() * 0.002 + s.x) * 0.08;
+
+        cx.save();
+        cx.translate(s.x, s.y);
+        cx.scale(pulse, pulse);
+        cx.translate(-s.x, -s.y);
+
+        cx.beginPath();
+        cx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+
+        cx.fillStyle = `rgba(255,255,255,${s.alpha})`;
+
+        if (s.alpha > .8) {
+            cx.shadowBlur = 14;
+            cx.shadowColor = "#fff";
+        } else {
+            cx.shadowBlur = 3;
+            cx.shadowColor = "rgba(255,255,255,.35)";
+        }
+
+        cx.fill();
+
+        cx.restore();
+
+        cx.shadowBlur = 0;
     });
-    pts.forEach((a, i) => pts.slice(i + 1).forEach(b => {
-        const d = Math.hypot(a.x - b.x, a.y - b.y);
-        if (d < 130) { cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.strokeStyle = `rgba(131,135,195,${.20 * (1 - d / 130)})`; cx.lineWidth = .5; cx.stroke(); }
-    }));
-    requestAnimationFrame(drawPts);
+
+    /* ---------- PURPLE PARTICLES ---------- */
+
+    pts.forEach(p => {
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = cv.width;
+        if (p.x > cv.width) p.x = 0;
+
+        if (p.y < 0) p.y = cv.height;
+        if (p.y > cv.height) p.y = 0;
+
+        cx.beginPath();
+        cx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        cx.fillStyle = `rgba(131,135,195,${p.a})`;
+        cx.fill();
+    });
+
+    pts.forEach((a, i) =>
+        pts.slice(i + 1).forEach(b => {
+
+            const d = Math.hypot(a.x - b.x, a.y - b.y);
+
+            if (d < 130) {
+                cx.beginPath();
+                cx.moveTo(a.x, a.y);
+                cx.lineTo(b.x, b.y);
+                cx.strokeStyle =
+                    `rgba(131,135,195,${.20 * (1 - d / 130)})`;
+                cx.lineWidth = .5;
+                cx.stroke();
+            }
+
+        })
+    );
+
+    requestAnimationFrame(drawScene);
+
 })();
 
-/* -- SCROLL REVEAL -- */
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
+        entry.target.classList.toggle("visible", entry.isIntersecting);
     });
 }, {
     threshold: 0.15
 });
 
-document.querySelectorAll(".reveal").forEach(el => {
+document.querySelectorAll(".reveal, .reveal-left, .sk-reveal, .proj-reveal").forEach(el => {
     observer.observe(el);
-});
-
-/* SK TILE HOVER SHINE */
-document.querySelectorAll('.sk').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; ring.style.transform = 'scale(1.5)'; ring.style.opacity = '0.9'; });
-    el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; ring.style.opacity = '0.5'; });
 });
 
 /* ONE BY ONE APPEARANCE */
@@ -157,7 +241,7 @@ document.querySelectorAll(".projects-row").forEach((slider) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5; 
+        const walk = (x - startX) * 1.5;
         slider.scrollLeft = scrollLeft - walk;
     });
 });
@@ -273,4 +357,209 @@ const statObserver = new IntersectionObserver(entries => {
 });
 statNumbers.forEach(stat => {
     statObserver.observe(stat);
+});
+
+/* ===================== PROJECT MODAL ===================== */
+// (function () {
+//     const overlay = document.getElementById('projModalOverlay');
+//     const modal = document.getElementById('projModal');
+//     const closeBtn = document.getElementById('projModalClose');
+//     const mediaEl = document.getElementById('projModalMedia');
+//     const tagEl = document.getElementById('projModalTag');
+//     const yearEl = document.getElementById('projModalYear');
+//     const titleEl = document.getElementById('projModalTitle');
+//     const descEl = document.getElementById('projModalDesc');
+//     const techEl = document.getElementById('projModalTech');
+//     const linkEl = document.getElementById('projModalLink');
+//     const linkTextEl = document.getElementById('projModalLinkText');
+
+//     if (!overlay) return;
+
+//     function buildMedia(card) {
+//         mediaEl.innerHTML = '';
+//         const videoSrc = (card.dataset.video || '').trim();
+
+//         if (videoSrc) {
+//             const video = document.createElement('video');
+//             video.src = videoSrc;
+//             video.controls = true;
+//             video.autoplay = true;
+//             video.muted = true;
+//             video.loop = true;
+//             video.playsInline = true;
+//             mediaEl.appendChild(video);
+//             return;
+//         }
+
+//         // Fall back to whatever screenshots already live in the card's thumbnail
+//         const imgs = Array.from(card.querySelectorAll('.proj-thumb img'));
+//         if (imgs.length === 0) return;
+
+//         const gallery = document.createElement('div');
+//         gallery.className = 'proj-modal-gallery';
+//         gallery.style.setProperty('--cols', Math.min(imgs.length, 2));
+//         imgs.forEach(img => {
+//             const clone = document.createElement('img');
+//             clone.src = img.getAttribute('src');
+//             clone.alt = img.getAttribute('alt') || '';
+//             gallery.appendChild(clone);
+//         });
+//         mediaEl.appendChild(gallery);
+//     }
+
+//     function openModal(card) {
+//         const title = card.querySelector('.proj-title')?.textContent.trim() || '';
+//         const desc = card.querySelector('.proj-desc')?.textContent.replace(/\s+/g, ' ').trim() || '';
+//         const tag = card.querySelector('.proj-tag')?.textContent.trim() || '';
+//         const year = card.querySelector('.proj-year')?.textContent.trim() || '';
+//         const techSpans = Array.from(card.querySelectorAll('.proj-tech span')).map(s => s.textContent.trim());
+//         const link = card.querySelector('.proj-link-arrow')?.getAttribute('href') || '#';
+//         let linkLabel = 'View Project';
+//         if (link.includes('github.com')) linkLabel = 'View on GitHub';
+//         else if (link.includes('figma.com')) linkLabel = 'View on Figma';
+
+//         buildMedia(card);
+//         tagEl.textContent = tag;
+//         yearEl.textContent = year;
+//         titleEl.textContent = title;
+//         descEl.textContent = desc;
+//         techEl.innerHTML = '';
+//         techSpans.forEach(t => {
+//             const span = document.createElement('span');
+//             span.textContent = t;
+//             techEl.appendChild(span);
+//         });
+//         linkEl.href = link;
+//         linkTextEl.textContent = linkLabel || 'View Project';
+
+//         overlay.classList.add('active');
+//         document.body.style.overflow = 'hidden';
+//     }
+
+//     function closeModal() {
+//         overlay.classList.remove('active');
+//         document.body.style.overflow = '';
+//         const video = mediaEl.querySelector('video');
+//         if (video) video.pause();
+//     }
+
+//     document.querySelectorAll('.proj-card').forEach(card => {
+//         card.addEventListener('click', (e) => {
+//             // Let the small GitHub/Figma arrow link behave normally, not open the modal
+//             if (e.target.closest('.proj-link-arrow')) return;
+//             openModal(card);
+//         });
+//     });
+
+//     closeBtn.addEventListener('click', closeModal);
+//     overlay.addEventListener('click', (e) => {
+//         if (e.target === overlay) closeModal();
+//     });
+//     document.addEventListener('keydown', (e) => {
+//         if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+//     });
+// })();
+
+window.addEventListener("load", () => {
+
+    const fairy = document.getElementById("fairy");
+    const mask = document.querySelector(".hero-name-mask");
+    const wrapper = document.querySelector(".hero-name-wrapper");
+
+    gsap.set(mask, {
+        clipPath: "inset(0 100% 0 0)"
+    });
+
+    function updateReveal() {
+        const x = gsap.getProperty(fairy, "x");
+        const width = wrapper.offsetWidth;
+        let percent = ((x + 80) / width) * 100;
+        percent = Math.max(0, Math.min(100, percent));
+        gsap.set(mask, {
+            clipPath: `inset(0 ${100 - percent}% 0 0)`
+        });
+    }
+
+    const target = document.getElementById("fairyTarget");
+
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+
+    const targetX =
+        targetRect.left -
+        wrapperRect.left +
+        targetRect.width / 2;
+
+    const targetY =
+        targetRect.top -
+        wrapperRect.top;
+
+    const tl = gsap.timeline();
+
+    const startX = -110;
+    const endX = wrapper.offsetWidth + 200;
+
+    const loops = 3;      
+    const radius = 30;   
+
+    tl.to({}, {
+        duration: 2,
+        ease: "none",
+        onUpdate() {
+
+            const p = tl.progress();
+            const baseX = gsap.utils.interpolate(startX, endX, p);
+            const angle = p * Math.PI * 2 * loops;
+            const x = baseX + Math.cos(angle) * radius;
+            const y = Math.sin(angle) * radius;
+
+            gsap.set(fairy, {
+                x,
+                y,
+                opacity: 1
+            });
+
+            createSparkle();
+            updateReveal();
+        }
+    });
+
+    tl.to(fairy, {
+        y: -140,
+        opacity: 0,
+        scale: 0.4,
+        duration: .7,
+        ease: "power2.in"
+    });
+
+    const dot = document.createElement("div");
+
+    dot.className = "sparkle";
+
+    dot.style.left = targetX + "px";
+    dot.style.top = (targetY - 12) + "px";
+
+    wrapper.appendChild(dot);
+
+    setTimeout(() => dot.remove(), 1000);
+
+    function createSparkle() {
+
+        if (Math.random() > .45) return;
+
+        const s = document.createElement("div");
+
+        s.className = "sparkle";
+
+        s.style.left = fairy.offsetLeft + "px";
+        s.style.top = fairy.offsetTop + "px";
+
+        wrapper.appendChild(s);
+
+        setTimeout(() => {
+            s.remove();
+        }, 800);
+
+    }
+
 });

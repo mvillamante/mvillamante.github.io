@@ -8,6 +8,7 @@
       if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
     })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michaella Villamante</title>
@@ -47,7 +48,14 @@
     <canvas id="particles"></canvas>
     <!-- <div class="hero-orb"></div> -->
     <div class="hero-label">Hi, I am</div>
-    <h1 class="hero-name">Michaella <em>Villamante</em></h1>
+    <div class="hero-name-wrapper">
+      <img id="fairy" src="assets/img/fairy.png" alt="">
+      <div class="hero-name-mask">
+        <h1 class="hero-name" id="heroName">
+          Michaella <em>V<span id="fairyTarget">i</span>llamante</em>
+        </h1>
+      </div>
+    </div>
     <p class="hero-sub">Aspiring Data Scientist &nbsp;·&nbsp; Software Developer &nbsp;·&nbsp; UI/UX Designer</p>
     <div class="hero-cta">
       <a href="#projects" class="btn-fill">View Work</a>
@@ -59,10 +67,6 @@
           class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/mvillamante" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
     </div>
-    <!-- <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div> -->
   </section>
 
   <!-- ABOUT -->
@@ -108,28 +112,34 @@
       <h2 class="section-title" style="text-align:center">My <em>Skills</em> &amp; Expertise</h2>
     </div>
 
-    <div class="skill-category reveal">
+    <div class="skill-category">
       <div class="skill-category-label">Languages</div>
       <div class="skill-icons">
-        <div class="sk">
+        <div class="sk sk-reveal">
+          <div class="sk-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" width="50" alt="TypeScript">
+          </div>
+          <div class="sk-name">TypeScript</div>
+        </div>
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="50" />
           </div>
           <div class="sk-name">JavaScript</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50">
           </div>
           <div class="sk-name">Python</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="50">
           </div>
           <div class="sk-name">C#</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="50">
           </div>
@@ -137,28 +147,28 @@
         </div>
       </div>
     </div>
-    <div class="skill-category reveal" style="transition-delay:.08s">
+    <div class="skill-category" style="transition-delay:.08s">
       <div class="skill-category-label">Frontend</div>
       <div class="skill-icons">
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50">
           </div>
           <div class="sk-name">HTML</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="50">
           </div>
           <div class="sk-name">CSS</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="50">
           </div>
           <div class="sk-name">React</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" width="50">
           </div>
@@ -166,34 +176,34 @@
         </div>
       </div>
     </div>
-    <div class="skill-category reveal" style="transition-delay:.16s">
+    <div class="skill-category" style="transition-delay:.16s">
       <div class="skill-category-label">Backend &amp; Database</div>
       <div class="skill-icons">
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="50">
           </div>
           <div class="sk-name">Node.js</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="50">
           </div>
           <div class="sk-name">Django</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="50">
           </div>
           <div class="sk-name">MySQL</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="50">
           </div>
           <div class="sk-name">PostgreSQL</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" width="50">
           </div>
@@ -201,40 +211,34 @@
         </div>
       </div>
     </div>
-    <div class="skill-category reveal" style="transition-delay:.32s">
+    <div class="skill-category" style="transition-delay:.32s">
       <div class="skill-category-label">Design &amp; Tools</div>
       <div class="skill-icons">
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="50">
           </div>
           <div class="sk-name">Figma</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://img.icons8.com/color/48/power-bi.png" width="50">
           </div>
           <div class="sk-name">Power BI</div>
         </div>
-        <!-- <div class="sk">
-          <div class="sk-icon">
-            <img src="https://img.icons8.com/color/48/tableau-software.png" width="50">
-          </div>
-          <div class="sk-name">Tableau</div>
-        </div> -->
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="50">
           </div>
           <div class="sk-name">Git</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="50">
           </div>
           <div class="sk-name">VS Code</div>
         </div>
-        <div class="sk">
+        <div class="sk sk-reveal">
           <div class="sk-icon">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg"
               width="50">
@@ -257,14 +261,10 @@
     <div class="projects-slider">
       <div class="projects-row top">
         <div class="projects-track">
-          <div class="proj-card reveal" style="transition-delay:.12s">
+          <div class="proj-card proj-reveal" style="transition-delay:.12s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb etherea-thumb">
               <img src="assets/img/hazspot.png" class="etherea-img">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://github.com/mvillamante/Geospatial_Web_App" class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 01</div>
             </div>
             <div class="proj-info">
@@ -279,17 +279,17 @@
                 <span>React</span>
                 <span>Django</span>
                 <span>Leaflet</span>
+
+                <a href="https://github.com/mvillamante/Geospatial_Web_App" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.12s">
+          <div class="proj-card proj-reveal" style="transition-delay:.12s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb personal-thumb">
               <img src="assets/img/personal.png" class="etherea-img">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://mvillamante.github.io" class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 06</div>
             </div>
             <div class="proj-info">
@@ -304,19 +304,19 @@
                 <span>HTML</span>
                 <span>CSS</span>
                 <span>Javascript</span>
+
+                <a href="https://mvillamante.github.io" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.05s">
+          <div class="proj-card proj-reveal" style="transition-delay:.05s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb studymatch-thumb">
               <img src="assets/img/study1.png" class="web-main">
               <div class="proj-phone-wrap">
                 <img src="assets/img/study2.png" class="proj-phone-img">
-              </div>
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://github.com/mvillamante/StudyMatch" class="proj-overlay-btn sec">GitHub →</a>
               </div>
               <div class="proj-thumb-label">PROJECT · 02</div>
             </div>
@@ -333,19 +333,18 @@
                 <span>Weka</span>
                 <span>Flask</span>
                 <span>Python</span>
+
+                <a href="https://github.com/mvillamante/StudyMatch" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.26s">
+          <div class="proj-card proj-reveal" style="transition-delay:.26s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb agrifil-thumb">
               <img src="assets/img/game1.png" class="phone left gamepedia">
               <img src="assets/img/game2.png" class="phone right gamepedia">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
-                  class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 06</div>
             </div>
             <div class="proj-info">
@@ -360,18 +359,18 @@
               </div>
               <div class="proj-tech">
                 <span>Android Xamarin</span>
+
+                <a href="https://github.com/mvillamante/Gamepedia" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.19s">
+          <div class="proj-card proj-reveal" style="transition-delay:.19s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb avalia-thumb">
               <img src="assets/img/avalia2.png" class="web-img left">
               <img src="assets/img/avalia3.png" class="web-img right">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://github.com/mvillamante/Avalia" class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 03</div>
             </div>
             <div class="proj-info">
@@ -388,6 +387,10 @@
               <div class="proj-tech">
                 <span>ASP.NET</span>
                 <span>Javascript</span>
+
+                <a href="https://github.com/mvillamante/Avalia" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
@@ -395,14 +398,10 @@
       </div>
       <div class="projects-row bottom">
         <div class="projects-track">
-          <div class="proj-card reveal" style="transition-delay:.12s">
+          <div class="proj-card proj-reveal" style="transition-delay:.12s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb etherea-thumb">
               <img src="assets/img/etherea2.png" class="etherea-img">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://github.com/mvillamante/Etherea" class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 07</div>
             </div>
             <div class="proj-info">
@@ -416,19 +415,18 @@
                 on interactive gameplay and visual experience.</div>
               <div class="proj-tech">
                 <span>C#</span>
+
+                <a href="https://github.com/mvillamante/Etherea" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.26s">
+          <div class="proj-card proj-reveal" style="transition-delay:.26s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb agrifil-thumb">
               <img src="assets/img/agri1.png" class="phone left">
               <img src="assets/img/agri3.png" class="phone right">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
-                  class="proj-overlay-btn sec">Figma →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 04</div>
             </div>
             <div class="proj-info">
@@ -442,18 +440,18 @@
                 fruits and vegetables directly from farmers, supporting local agriculture.</div>
               <div class="proj-tech">
                 <span>Figma</span>
+
+                <a href="https://www.figma.com/proto/RCTDdtAvV2Az0BhJlen7g8/AGRIFIL--UX-AND-UI-CASE-STUDY?node-id=1-18304&t=pMx0xauCSFUa3SbT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A18252&show-proto-sidebar=1"
+                  class="proj-link-arrow" target="_blank" aria-label="View project link"
+                  onclick="event.stopPropagation()"><i class="fab fa-figma"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.19s">
+          <div class="proj-card proj-reveal" style="transition-delay:.19s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb ehr-thumb">
               <img src="assets/img/ehr1.png" class="web-img left">
               <img src="assets/img/ehr2.png" class="ehr-web-img right">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://github.com/mvillamante/Avalia" class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 08</div>
             </div>
             <div class="proj-info">
@@ -469,17 +467,17 @@
               <div class="proj-tech">
                 <span>React</span>
                 <span>Node.JS</span>
+
+                <a href="https://github.com/mvillamante/Avalia" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
-          <div class="proj-card reveal" style="transition-delay:.33s">
+          <div class="proj-card proj-reveal" style="transition-delay:.33s" data-video="">
             <div class="tilt-shine"></div>
             <div class="proj-thumb vespera-thumb">
               <img src="assets/img/vespera2.png" class="web-main">
-              <div class="proj-overlay">
-                <!-- <div class="proj-overlay-btn">Live Demo ↗</div> -->
-                <a href="https://github.com/mvillamante/TwitterClone" class="proj-overlay-btn sec">GitHub →</a>
-              </div>
               <div class="proj-thumb-label">PROJECT · 05</div>
             </div>
             <div class="proj-info">
@@ -494,6 +492,10 @@
               <div class="proj-tech">
                 <span>C#</span>
                 <span>ASP.NET</span>
+
+                <a href="https://github.com/mvillamante/TwitterClone" class="proj-link-arrow" target="_blank"
+                  aria-label="View project link" onclick="event.stopPropagation()"><i
+                    class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
@@ -556,6 +558,50 @@
             <div class="cert-footer">
               <span>2026</span>
               <a href="https://coursera.org/share/e0465fbaa423eb0f4b325f30d0f5fc8d" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/build_gen.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Building Generative AI-Powered Applications with Python
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/818b5c5a4c17854be112d8469df1818a" target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/develop_ai.jpg">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              IBM
+            </span>
+            <h3>
+              Developing AI Applications with Python and Flask
+            </h3>
+            <p>
+              IBM • Coursera
+            </p>
+            <div class="cert-footer">
+              <span>2026</span>
+              <a href="https://coursera.org/share/033f95aa1042332fa978dfca175980c8" target="_blank">
                 View →
               </a>
             </div>
@@ -823,6 +869,167 @@
       <div class="cert-grid">
         <div class="cert-card reveal">
           <div class="cert-image">
+            <img src="assets/img/certs/setup_cloud.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Set Up an App Dev Environment on Google Cloud
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9444079"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/secure_cloud.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Build a Secure Google Cloud Network
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9478234"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/network_cloud.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Google Cloud Computing Foundations: Networking & Security in Google Cloud
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9477619"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/load_balancing.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Implementing Cloud Load Balancing for Compute Engine
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9402289"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/infra_cloud.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Google Cloud Computing Foundations: Infrastructure in Google Cloud
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9405326"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/foundations_cloud.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Google Cloud Computing Foundations: Data, ML, and AI in Google Cloud
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9745178"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
+            <img src="assets/img/certs/cloud_computing.png">
+          </div>
+          <div class="cert-body">
+            <span class="cert-org">
+              Google
+            </span>
+            <h3>
+              Google Cloud Computing Foundations: Cloud Computing Fundamentals
+            </h3>
+            <p>
+              Google Cloud
+            </p>
+            <div class="cert-footer">
+              <span>2024</span>
+              <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9277818"
+                target="_blank">
+                View →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-image">
             <img src="assets/img/certs/2.png">
           </div>
           <div class="cert-body">
@@ -836,7 +1043,7 @@
               Google Cloud
             </p>
             <div class="cert-footer">
-              <span>2026</span>
+              <span>2024</span>
               <a href="https://www.skills.google/public_profiles/5da154ee-1072-4c33-81a2-2f8394251672/badges/9745589"
                 target="_blank">
                 View →
@@ -863,6 +1070,29 @@
       <a href="#certifications">Certifications</a>
     </div>
   </footer>
+
+  <!-- PROJECT MODAL -->
+  <div class="proj-modal-overlay" id="projModalOverlay">
+    <div class="proj-modal" id="projModal" role="dialog" aria-modal="true" aria-labelledby="projModalTitle">
+      <button class="proj-modal-close" id="projModalClose" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="proj-modal-media" id="projModalMedia"></div>
+      <div class="proj-modal-body">
+        <div class="proj-modal-meta">
+          <span class="proj-modal-tag" id="projModalTag"></span>
+          <span class="proj-modal-year" id="projModalYear"></span>
+        </div>
+        <h3 class="proj-modal-title" id="projModalTitle"></h3>
+        <p class="proj-modal-desc" id="projModalDesc"></p>
+        <div class="proj-modal-tech" id="projModalTech"></div>
+        <a class="proj-modal-link" id="projModalLink" target="_blank">
+          <span id="projModalLinkText">View Project</span> <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <button class="theme-toggle floating" id="themeToggle" aria-label="Toggle Theme">
     <i class="fas fa-moon"></i>
     <i class="fas fa-sun"></i>

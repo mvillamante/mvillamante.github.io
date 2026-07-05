@@ -174,6 +174,9 @@ html[data-theme="light"] .proj-card:hover {
     box-shadow: 0 16px 36px rgba(82, 62, 140, .1);
 }
 
+html[data-theme="light"] .proj-title {
+    color: var(--ube);
+}
 html[data-theme="light"] .proj-card:hover .proj-title {
     color: var(--american-blue);
 }
@@ -205,7 +208,7 @@ html[data-theme="light"] .projects-slider::-webkit-scrollbar-thumb {
 }
 
 html[data-theme="light"] .cert-tab {
-    border-color: rgba(117, 99, 216, .25);
+    border-color: rgba(101, 86, 186, 0.25);
 }
 
 html[data-theme="light"] .cert-card:hover {
@@ -554,14 +557,16 @@ section {
 
 html[data-theme="light"] .hero-bg {
     background:
-        transparent
+        radial-gradient(ellipse 90% 80% at 50% 25%,
+            rgba(168, 155, 255, .18) 0%,
+            rgba(168, 155, 255, .08) 35%,
+            transparent 75%);
 }
+
 
 html[data-theme="light"] #fairy {
     filter:
-        drop-shadow(0 0 4px rgba(131, 135, 195, .7))
-        drop-shadow(0 0 10px rgba(131, 135, 195, .6))
-        drop-shadow(0 0 18px rgba(101, 83, 197, .45));
+        drop-shadow(0 0 4px rgba(131, 135, 195, .7)) drop-shadow(0 0 10px rgba(131, 135, 195, .6)) drop-shadow(0 0 18px rgba(101, 83, 197, .45));
 }
 
 #particles {
@@ -925,14 +930,16 @@ html[data-theme="light"] #fairy {
     margin-bottom: 28px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 14px;
 }
 
+.skill-category-label::before,
 .skill-category-label::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(to right, rgba(131, 135, 195, .3), transparent);
+    background: rgba(131, 135, 195, .3);
 }
 
 .skill-icons {
@@ -958,17 +965,6 @@ html[data-theme="light"] #fairy {
     transition: transform .35s cubic-bezier(.22, 1, .36, 1), border-color .35s, background .35s, box-shadow .35s;
 }
 
-.sk::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--ube), transparent);
-    transform: scaleX(0);
-    transition: transform .35s;
-}
 
 .sk:hover::before {
     transform: scaleX(1);
@@ -978,7 +974,7 @@ html[data-theme="light"] #fairy {
     background: rgba(58, 62, 108, .25);
     border-color: rgba(131, 135, 195, .45);
     transform: translateY(-6px) scale(1.04);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, .5), 0 0 20px rgba(131, 135, 195, .08);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
 }
 
 .sk-icon {
@@ -1578,11 +1574,23 @@ html[data-theme="light"] #fairy {
         0 0 0 1px rgba(131, 135, 195, .15);
 }
 
+.cert-card.reveal.professional .cert-image img {
+        object-position: left 10%;
+}
+
 .cert-image {
     aspect-ratio: 5/3;
     height: auto;
     overflow: hidden;
     border-radius: 15px 15px 0 0;
+}
+
+.cert-card.cloud .cert-image img {
+    transform: scale(1.06);
+}
+
+.cert-card.cloud:hover img {
+    transform: scale(1.10);
 }
 
 .cert-image img {
@@ -1868,7 +1876,7 @@ body::after {
     transform: translateX(0);
 }
 
-/* keep the existing hover lift working once a tile has revealed in */
+
 .sk-reveal.visible:hover {
     transform: translateY(-6px) scale(1.04);
 }
@@ -1885,8 +1893,6 @@ body::after {
     transform: perspective(900px) rotateY(0deg) translateY(0) scale(1);
 }
 
-/* keep the existing hover lift working once a card has revealed in
-   (the mousemove tilt effect sets an inline style, which still wins over this) */
 .proj-reveal.visible:hover {
     transform: translateY(-6px);
 }

@@ -553,6 +553,7 @@ html[data-theme="light"] {
     .reflection-block {
         margin-bottom: 36px;
         padding-bottom: 28px;
+        color: 0;
     }
 
     .reflection-block h3 {

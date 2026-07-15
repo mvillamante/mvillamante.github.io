@@ -104,6 +104,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+
 /* -- STAT COUNTERS -- */
 const statNumbers = document.querySelectorAll('.stat-card h2[data-target]');
 const statObserver = new IntersectionObserver(entries => {

@@ -177,7 +177,12 @@ html[data-theme="light"] .proj-card:hover {
 html[data-theme="light"] .proj-title {
     color: var(--ube);
 }
+
 html[data-theme="light"] .proj-card:hover .proj-title {
+    color: var(--american-blue);
+}
+
+html[data-theme="light"] .proj-tech span {
     color: var(--american-blue);
 }
 
@@ -192,7 +197,7 @@ html[data-theme="light"] .proj-card:hover .proj-year {
 
 html[data-theme="light"] .proj-thumb,
 html[data-theme="light"] .proj-card:nth-child(odd) .proj-thumb {
-    background: linear-gradient(135deg, #DCD5F5, #B9AEEA);
+    background: linear-gradient(135deg, #fafafa, #ccc5ef);
 }
 
 html[data-theme="light"] .proj-tech span {
@@ -616,30 +621,13 @@ html[data-theme="light"] #fairy {
 .hero-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(52px, 10vw, 96px);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 0.95;
     letter-spacing: -0.02em;
     color: var(--white);
-    /* opacity: 0; */
-}
-
-.hero-name-mask {
-    overflow: hidden;
-    clip-path: inset(0 100% 0 0);
-}
-
-#fairy {
-    position: absolute;
-    left: -40px;
-    top: 50%;
-    width: 35px;
-    height: auto;
-    transform: translateY(-50%);
-    z-index: 100;
-    pointer-events: none;
-    filter:
-        drop-shadow(0 0 8px rgba(255, 255, 255, .9)) drop-shadow(0 0 18px rgba(182, 156, 255, .8));
     opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+    /* opacity: 0; */
 }
 
 .hero-name em {
@@ -873,7 +861,7 @@ html[data-theme="light"] #fairy {
 .about-text {
     color: var(--cadet-grey);
     font-size: 15px;
-    line-height: 1.05;
+    line-height: 1.8;
     margin-bottom: 20px;
 }
 
@@ -1575,7 +1563,7 @@ html[data-theme="light"] #fairy {
 }
 
 .cert-card.reveal.professional .cert-image img {
-        object-position: left 10%;
+    object-position: left 10%;
 }
 
 .cert-image {

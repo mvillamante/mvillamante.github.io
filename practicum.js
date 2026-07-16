@@ -81,11 +81,18 @@ if (cv) {
     })();
 }
 
-/* -- SCROLL REVEAL -- */
+/* -- SCROLL REVEAL (replays every time it enters/leaves view) -- */
+/* Matches the pattern used in main.js, extended with the hero/summary/
+   reflection elements that used to rely on hardcoded fadeUp animations. */
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    entries.forEach(entry => {
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+    });
 }, { threshold: 0.15 });
-document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observe(el));
+
+document.querySelectorAll(
+    '.reveal, .reveal-left, .hero-title, .hero-company, .hero-subtitle, .hero-meta, .hero-description, .hero-buttons, .summary-grid, .reflection-block p'
+).forEach(el => observer.observe(el));
 
 /* -- NAV TOGGLE -- */
 const hamburger = document.getElementById('hamburger');
@@ -104,28 +111,39 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     });
 });
 
+/* -- STAT COUNTERS (replays every time it scrolls into view) -- */
+/* Selector matches the practicum HTML: .summary-card h2[data-target] */
+const statNumbers = document.querySelectorAll('.summary-card h2[data-target]');
+const statAnimId = new WeakMap(); // tracks the running rAF id per counter, so re-entry can cancel a stale run
 
-/* -- STAT COUNTERS -- */
-const statNumbers = document.querySelectorAll('.stat-card h2[data-target]');
+function animateStat(counter) {
+    if (statAnimId.has(counter)) {
+        cancelAnimationFrame(statAnimId.get(counter));
+    }
+    const target = +counter.dataset.target;
+    const suffix = counter.dataset.suffix || '';
+    let current = 0;
+    const increment = Math.max(1, Math.ceil(target / 60));
+    const update = () => {
+        current += increment;
+        if (current >= target) {
+            counter.textContent = target + suffix;
+            statAnimId.delete(counter);
+        } else {
+            counter.textContent = current;
+            const id = requestAnimationFrame(update);
+            statAnimId.set(counter, id);
+        }
+    };
+    update();
+}
+
 const statObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const counter = entry.target;
-        const target = +counter.dataset.target;
-        const suffix = counter.dataset.suffix || '';
-        let current = 0;
-        const increment = Math.max(1, Math.ceil(target / 60));
-        const update = () => {
-            current += increment;
-            if (current >= target) {
-                counter.textContent = target + suffix;
-            } else {
-                counter.textContent = current;
-                requestAnimationFrame(update);
-            }
-        };
-        update();
-        statObserver.unobserve(counter);
+        if (entry.isIntersecting) {
+            animateStat(entry.target);
+        }
+        // no unobserve() here — leaving it in place lets it re-trigger on re-entry
     });
 }, { threshold: .6 });
 statNumbers.forEach(stat => statObserver.observe(stat));

@@ -12,6 +12,26 @@ html[data-theme="light"] {
     --border: rgba(84, 88, 168, .18);
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .8s cubic-bezier(.22, 1, .36, 1),
+                transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+ 
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity .8s cubic-bezier(.22, 1, .36, 1),
+                transform .8s cubic-bezier(.22, 1, .36, 1);
+}
+ 
+.reveal.visible,
+.reveal-left.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
 .section {
     padding: 150px 54px;
 }
